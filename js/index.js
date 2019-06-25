@@ -24,4 +24,13 @@ greet.call(sally);
 greet.apply(sally);
 // my name is Sally, hi!
 
-let newGreet = greet.bind(sally)
+let sally = { name: 'Sally' };
+ 
+function greet(customerOne, customerTwo) {
+    console.log(`Hi ${customerOne} and ${customerTwo}, my name is ${this.name}!`);
+}
+ 
+greet.call(sally, 'Terry', 'George');
+// Hi Terry and George, my name is Sally!
+
+
