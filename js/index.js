@@ -157,6 +157,6 @@ billy.matchInterests(freeMusic);
 
 
 // refactor to arrow function
-matchInterests(event) {
+function matchInterests(event) {
   return event.keywords.some(word => this.interests.includes(word));
 }
