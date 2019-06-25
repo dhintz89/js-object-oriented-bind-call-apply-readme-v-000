@@ -124,3 +124,32 @@ billy.matchInterests(freeMusic);
 // 'this' is defined:  User {name: "billy", interests: Array(3)}
 // 'this' is now undefined:  undefined
 // Uncaught TypeError: Cannot read property 'interests' of undefined
+
+
+
+class Event {
+    constructor(title, keywords) {
+        this.title = title;
+        this.keywords = keywords;
+    }
+}
+ 
+class User {
+    constructor(name, interests) {
+        this.name = name;
+        this.interests = interests;
+    }
+ 
+    matchInterests(event) {
+        return event.keywords.some(
+            function(word) {
+                return this.interests.includes(word);
+            }.bind(this) // added to the and of the callback function
+        );
+    }
+}
+ 
+let billy = new User('billy', ['music', 'art', 'movies']);
+let freeMusic = new Event('Free Music Show', ['music', 'free', 'outside']);
+ 
+billy.matchInterests(freeMusic);
