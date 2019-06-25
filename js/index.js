@@ -23,3 +23,5 @@ greet.call(sally);
  
 greet.apply(sally);
 // my name is Sally, hi!
+
+let newGreet = greet.bind(sally)
